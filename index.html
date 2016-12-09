@@ -2,13 +2,18 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0,width=device-width">
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,max-scale=1.0,user-scale=1.0">
     <title>Angular项目</title>
     <link href="static/css/style.css" rel="stylesheet" type="text/css">
     <style type="text/css">
+        html,body{font-family: "Microsoft Yahei"}
 
-        *{font-family: "Microsoft Yahei"}
-
+        .nav_tab{background: #ffffff;border-bottom: #d1d1d1 solid 2px;}
+        .nav_tab span{display: inline-block;width: 50%;
+            text-align: center;position: relative;float: left}
+        .nav_tab span a{display: inline-block;line-height: 36px;}
+        .navbar_title{line-height: 40px;font-size: 16px;text-align: center;
+            border-bottom: #d1d1d1 solid 1px;}
     </style>
 </head>
 <body ng-app="app" ng-controller="LayoutCtrl">
@@ -22,15 +27,9 @@
 <script type="text/javascript" src="dist/angular-touch.min.js"></script>
 <script type="text/javascript" src="dist/angular-ui-router.js"></script>
 <script type="text/javascript" src="dist/ocLazyLoad.min.js"></script>
-
-
-<script type="text/javascript">
-
-
-
-</script>
-
+<script type="text/javascript" src="mods/app.js"></script>
 <script type="text/javascript" src="./mods/core/directives/ngQaList/qalist.js"></script>
+<script type="text/javascript" src="./mods/users/users.route.js"></script>
 
 </body>
 </html>
