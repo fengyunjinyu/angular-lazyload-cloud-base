@@ -1,0 +1,41 @@
+
+
+
+
+<p> sums: {{ pageinfo.count }}  </p>
+
+<ul class="qa_list" style="background: #ffffff">
+    <li ng-repeat="item in data">
+        <h4>{{item.question}}</h4>
+        <p>{{item.answer}}</p>
+    </li>
+</ul>
+
+<div class="" ng-show="!data || data.length==0" style="padding: 20px;background: #ff4657">
+    <h4>并无数据</h4>
+</div>
+
+
+<hr>
+<p>perpage items number: {{ pageinfo.perpage}}  ,now pageindex: {{ pageinfo.pageindex }}</p>
+
+<hr>
+<h3> 分页设置 </h3>
+
+<div style="padding: 20px;">
+    <button ng-click="prePage()" class="btn" >Pre page</button>
+
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+
+    <button ng-click="nextPage()" class="btn">  Next page</button>
+
+</div>
+
+
+
+
+
+
+

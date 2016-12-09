@@ -48,3 +48,14 @@ body{background: #f5f6f5}
 
 .btn_normal{line-height: 40px;width: 100%;text-align: center;color: #fff;font-size: 16px;
     background: #ff4657;display: inline-block;border-radius: 5px;}
+
+.qa_list{padding: 0 15px;}
+.qa_list li {border-bottom: #d1d1d1 solid 1px;}
+.qa_list li h4{line-height: 30px;font-size: 20px;}
+.qa_list li p{line-height: 20px;padding: 10px;background: #f5f6f5}
+
+.btn{background: #fff;
+    border:#d1d1d1 solid 1px;
+    display: inline-block;
+    line-height: 30px;padding: 0 10px;
+}
