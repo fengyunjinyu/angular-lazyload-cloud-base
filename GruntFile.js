@@ -19,8 +19,8 @@ module.exports = function(grunt){
                 banner:'/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build:{
-                src:'grunttest/mods/*.js',
-                dest:'build/<%= pkg.name %>.min.js'
+                src:'build/script/*.js',
+                dest:'build/scripts/'
             },
             buildall:{
                 files:[{
@@ -42,7 +42,12 @@ module.exports = function(grunt){
             },
             dist:{
                 src:'dist/*.js',
-                dest:'./tmp/dist.js'
+                dest:'build/script/dist.js'
+            },
+            build:{
+                src:'mods/**/*.js',
+                dest:'build/script/vendor.js'
+
             },
             //按模块打包
             concat_module:{
@@ -69,8 +74,18 @@ module.exports = function(grunt){
         htmlmin:{
             dist: {
                 options: {
+                    collapseWhitespace: true,
+                    conservativeCollapse: true,
+                    collapseBooleanAttributes: true,
+                    removeCommentsFromCDATA: true,
+                    removeOptionalTags: true,
+                    removeAttributeQuotes: true,
                     removeComments: true,
-                    collapseWhitespace: true
+                    removeEmptyAttributes: true,
+                    removeRedundantAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    removeStyleLinkTypeAttributes: true,
+                    minifyJS: true
                 },
                 files: [
                     {
@@ -141,10 +156,28 @@ module.exports = function(grunt){
                     'build/images'
                 ]
             }
+        },
+        //资源文件后缀名增加八位md5加密字符串
+        filerev:{
+            options: {
+                algorithm: 'md5',
+                length: 8
+            },
+            dist:{
+                src:[
+                    'build/script{,*/}*.js',
+                    'build/styles/{,*/}*.css',
+                    'build/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    'build/fonts/*'
+                ]
+            }
         }
     });
 
 
+    /**
+     * 加载任务驱动模块
+     */
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-jasmine-node");
     grunt.loadNpmTasks("grunt-contrib-concat");
@@ -152,7 +185,12 @@ module.exports = function(grunt){
     grunt.loadNpmTasks("grunt-wiredep");
     grunt.loadNpmTasks("grunt-include-source");
     grunt.loadNpmTasks("grunt-usemin");
+    grunt.loadNpmTasks("grunt-filerev");
 
+
+    /**
+     * 定义任务
+     */
 
     grunt.registerTask('default',['uglify:buildall','concat']);
 
@@ -180,13 +218,19 @@ module.exports = function(grunt){
         'wiredep:server'
     ]);
 
+    /**
+     * 项目打包脚本
+     */
     grunt.registerTask("build" ,[
         'test',
         'includeSource:dist',
         'wiredep:dist',
         'useminPrepare',
         'concat:dist',
-        'usemin', 
-        ''
+        'concat:build',
+        'usemin',
+        'filerev:dist',
+        'uglify:build',
+        'htmlmin'
     ]);
 }
