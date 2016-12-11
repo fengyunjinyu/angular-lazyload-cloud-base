@@ -131,6 +131,16 @@ module.exports = function(grunt){
                     post:{}
                 }
             }
+        },
+        usemin:{
+            html:['build/{,*/}*.html'],
+            css:['build/styles/{,*/}*.css'],
+            options: {
+                assetsDirs: [
+                    'build',
+                    'build/images'
+                ]
+            }
         }
     });
 
@@ -146,7 +156,7 @@ module.exports = function(grunt){
 
     grunt.registerTask('default',['uglify:buildall','concat']);
 
-    grunt.registerTask("build" ,['uglify:build']);
+    //grunt.registerTask("build" ,['uglify:build']);
     grunt.registerTask("test" , ['htmlmin']);
 
     grunt.registerTask("mytask" , '' , function(arg1 , arg2){
@@ -165,10 +175,18 @@ module.exports = function(grunt){
         'useminPrepare'
     ]);
 
+    grunt.registerTask("test",[
+        'includeSource:server',
+        'wiredep:server'
+    ]);
+
     grunt.registerTask("build" ,[
+        'test',
         'includeSource:dist',
         'wiredep:dist',
         'useminPrepare',
-        'concat:dist'
+        'concat:dist',
+        'usemin', 
+        ''
     ]);
 }
