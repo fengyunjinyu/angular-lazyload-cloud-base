@@ -1,0 +1,29 @@
+{
+  "name": "angular-lazyload-cloud",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "fengyun"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "lazyload",
+    "cloud",
+    "struct"
+  ],
+  "homepage": "https://github.com/fengyunjinyu/angular-lazyload-cloud-base",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.3.1",
+    "angular-toasty": "^1.0.5",
+    "angular-formly": "^8.4.0",
+    "angular-filter": "^0.5.14"
+  }
+}
