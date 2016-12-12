@@ -171,6 +171,21 @@ module.exports = function(grunt){
                     'build/fonts/*'
                 ]
             }
+        },
+        // Empties folders to start fresh
+        clean: {
+            dist: {
+                files: [
+                    {
+                        dot: true,
+                        src: [
+                            '.tmp',
+                            'build/{,*/}*'
+                        ]
+                    }
+                ]
+            },
+            server: '.tmp'
         }
     });
 
@@ -179,14 +194,24 @@ module.exports = function(grunt){
      * 加载任务驱动模块
      */
     grunt.loadNpmTasks("grunt-contrib-uglify");
-    grunt.loadNpmTasks("grunt-jasmine-node");
+    //文件合并
     grunt.loadNpmTasks("grunt-contrib-concat");
+    //html压缩
     grunt.loadNpmTasks("grunt-contrib-htmlmin");
     grunt.loadNpmTasks("grunt-wiredep");
+    //文件内部资源文件压缩
     grunt.loadNpmTasks("grunt-include-source");
+    //文件打版本号
     grunt.loadNpmTasks("grunt-usemin");
+    //
     grunt.loadNpmTasks("grunt-filerev");
+    /** 目录清理 */
+    grunt.loadNpmTasks("grunt-contrib-clean");
+    /** 代码单元测试 */
+    grunt.loadNpmTasks("grunt-jasmine-code");
 
+    /* less语法解析*/
+    grunt.loadNpmTasks("grunt-contrib-less");
 
     /**
      * 定义任务
@@ -222,6 +247,7 @@ module.exports = function(grunt){
      * 项目打包脚本
      */
     grunt.registerTask("build" ,[
+        'clean:dist',
         'test',
         'includeSource:dist',
         'wiredep:dist',
@@ -230,7 +256,7 @@ module.exports = function(grunt){
         'concat:build',
         'usemin',
         'filerev:dist',
-        'uglify:build',
+        //'uglify:build',
         'htmlmin'
     ]);
 }
