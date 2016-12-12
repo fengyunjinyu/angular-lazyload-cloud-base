@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Smarty</title>
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scale=1.0">
+    <style type="text/css">
+        *{box-sizing: border-box;padding: 0;margin: 0}
+
+        .cont-block{padding:20px;}
+
+        h1,h2,h3,h4,h5,h6{font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            padding: 10px 0;
+            position: relative;
+            float: left;
+            width:100%;
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-show{display: block}
+            .col-sm-hide{display:none}
+        }
+        @media (min-width: 992px) {
+
+            .col-md-show{
+                display: block;}
+            .col-md-hide{display: none}
+        }
+        @media (min-width: 1200px) {
+            .col-lg-show{display: block}
+            .col-lg-hide{display: none  }
+        }
+
+        .box{
+            border:#d1d1d1 solid 1px;padding: 10px;}
+        .box .box-header{padding: 10px 0;border-bottom: #d1d1d1 solid 1px;}
+        .box .box-footer{padding: 10px 0;border-top: #d1d1d1 solid 1px;}
+        .box .box-cont{padding:20px;text-align: center}
+
+
+    </style>
+    <link href="dist/grid.css" rel="stylesheet" type="text/css">
+
+
+
+</head>
+<body>
+
+<div class="container">
+    <h1>col-md  col-lg col-sm 划分屏幕尺寸</h1>
+    <div class="row">
+        <div class="col-lg-8 col-md-6 col-sm-4 cont-block" style="background: #d9534f">
+            Hello world
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-8 cont-block" style="background: #d1d1d1">
+            seprate Frames Works
+        </div>
+    </div>
+    
+    
+    <h1>col-<span style="color: #ff4657;">[md || sm || lg || mm ]</span>-[  show ||  hide ] 隐藏与显示内容</h1>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-show col-md-6 col-sm-6 cont-block" style="background: #d9534f">content1</div>
+        <div class="col-lg-3 col-lg-show col-md-hide col-sm-hide cont-block" style="background:#336789">content2</div>
+        <div class="col-lg-3 col-md-show col-md-3 cont-block col-sm-hide" style="background: #ff4657;">content3</div>
+        <div class="col-lg-3 col-md-3 col-md-show cont-block col-sm-6 col-sm-show " style="background:darkgreen">content4</div>
+    </div>
+
+    <h1 class="">Content Model</h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">内容模型头</div>
+                <div class="box-cont">主体内容去</div>
+                <div class="box-footer">
+                    <p style="text-align: right">Save</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="">Buttons</h1>
+
+    <h1 class="">Forms</h1>
+
+    <h1 class="">List</h1>
+    <h1 class="">Tables</h1>
+    <h1 class="">Components</h1>
+
+
+    <h1 class="">内容模型</h1>
+    <h1 class="">内容模型</h1>
+    <h1 class="">内容模型</h1>
+    <h1 class="">内容模型</h1>
+    <h1 class="">内容模型</h1>
+
+
+</div>
+
+</body>
+</html>

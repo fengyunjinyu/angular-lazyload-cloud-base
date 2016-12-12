@@ -3,14 +3,19 @@
  * 路由模块
  */
 
-app.config(["$stateProvider" , function( $stateProvider ){
+angular.module("com.module.user",[]).config(["$stateProvider" , function( $stateProvider ){
     $stateProvider.state('app.user' , {
         url:'/user',
         templateUrl:'./mods/users/views/base.html',
         controller:'UserCtrl',
         resolve:{
             loadMyCtrl:['$ocLazyLoad' , function($ocLazyLoad){
-                return $ocLazyLoad.load('./mods/users/controllers/user.ctrl.js')
+                return $ocLazyLoad.load(
+                    './mods/users/services/users.services.js',
+
+                    './mods/users/controllers/user.ctrl.js'
+
+                )
             }]
         }
 
@@ -26,12 +31,14 @@ app.config(["$stateProvider" , function( $stateProvider ){
             }]
         }
     }).state("app.user.info" , {
-        url:'/userlists',
+        url:'/userinfo',
         templateUrl:'./mods/users/views/info.html',
         controller:'UserInfoCtrl',
         resolve:{
             loadMyCtrl:['$ocLazyLoad' , function( $ocLazyLoad ){
-                return $ocLazyLoad.load('./mods/users/controllers/userinfo.ctrl.js');
+                return $ocLazyLoad.load(
+                    './mods/users/controllers/userinfo.ctrl.js'
+                );
 
             }]
         }

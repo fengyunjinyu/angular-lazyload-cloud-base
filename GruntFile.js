@@ -105,8 +105,8 @@ module.exports = function(grunt){
                 baseUrl:'/',
                 templates:{
                     html:{
-                        js:'<script src="{filePath}"></script>',
-                        css: '<link rel="stylesheet" href="{filePath}" />'
+                        js:'<script src="./{filePath}"></script>',
+                        css: '<link rel="stylesheet" href="./{filePath}" />'
                     }
                 }
             },
@@ -186,6 +186,19 @@ module.exports = function(grunt){
                 ]
             },
             server: '.tmp'
+        },
+        less:{
+            sys:{
+                files:[
+                    {
+                        expand:true,
+                        cwd:'./styles/less',
+                        src:'*.less',
+                        dest:'./styles/dist',
+                        ext:'.css'
+                    }
+                ]
+            }
         }
     });
 
@@ -208,7 +221,7 @@ module.exports = function(grunt){
     /** 目录清理 */
     grunt.loadNpmTasks("grunt-contrib-clean");
     /** 代码单元测试 */
-    grunt.loadNpmTasks("grunt-jasmine-code");
+    grunt.loadNpmTasks("grunt-jasmine-node");
 
     /* less语法解析*/
     grunt.loadNpmTasks("grunt-contrib-less");
@@ -220,7 +233,7 @@ module.exports = function(grunt){
     grunt.registerTask('default',['uglify:buildall','concat']);
 
     //grunt.registerTask("build" ,['uglify:build']);
-    grunt.registerTask("test" , ['htmlmin']);
+    //grunt.registerTask("test" , ['htmlmin']);
 
     grunt.registerTask("mytask" , '' , function(arg1 , arg2){
         if(arg1){
@@ -237,8 +250,9 @@ module.exports = function(grunt){
         'wiredep:server',
         'useminPrepare'
     ]);
+    /*
 
-    grunt.registerTask("test",[
+    grunt.registerTask("testd",[
         'includeSource:server',
         'wiredep:server'
     ]);
@@ -259,4 +273,9 @@ module.exports = function(grunt){
         //'uglify:build',
         'htmlmin'
     ]);
+
+    //test less compile
+
+    grunt.registerTask("test" , ['less:sys']);
+
 }

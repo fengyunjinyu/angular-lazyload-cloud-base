@@ -1,9 +1,11 @@
 <div ng-controller="UserCtrl">
-
-
-</div><p>{{desc}}</p>
-<hr>
-
+    <p>
+        用户中心模块, 使用异步加载方式
+    </p>
+    <div class="nav_tab overline flo">
+        <span><a ui-sref="app.user.lists">user lists</a>  </span>
+        <span><a ui-sref="app.user.info">user info</a>  </span>
+    </div>
 <ui-view></ui-view>
 
 </div>

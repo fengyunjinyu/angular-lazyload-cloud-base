@@ -7,17 +7,18 @@ var app = angular.module('app' , [
     'ngRoute',
     'ngResource',
     'ui.router','oc.lazyLoad',
+    'com.module.user'
 
 ]);
 
 app.config(["$provide", "$compileProvider", "$controllerProvider",
     "$filterProvider" , function($provider , $compileProvider , $controllerProvider , $filterProvoder){
+
         app.controller = $controllerProvider.register;
         app.directive = $compileProvider.directive;
         app.filter = $filterProvoder.register;
         app.factory = $provider.factory;
         app.constant = $provider.constant;
-
     }]);
 
 app.constant('Modules_Config', [
@@ -29,6 +30,7 @@ app.constant('Modules_Config', [
 ]);
 app.config(["$ocLazyLoadProvider","Modules_Config",routeFn]);
 function routeFn($ocLazyLoadProvider,Modules_Config){
+    console.log(Modules_Config);
     $ocLazyLoadProvider.config({
         debug:false,
         events:false,
