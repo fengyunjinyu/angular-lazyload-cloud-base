@@ -1,0 +1,35 @@
+//cteated by fengyun 2016-12-12
+/* LESS vars defined in this file */
+
+
+//Grid system
+
+@screen-xs :   480px;
+
+@screen-sm:    768px;
+@screen-sm-min: @screen-sm;
+
+@screen-md:    992px;
+@screen-md-min:@screen-md;
+
+@screen-lg:    1200px;
+@screen-lg-min:@screen-lg;
+
+@grid-columns:  12;
+//** Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width:30px;
+
+
+//Container sizes
+
+@container-tablet:(720 + @grid-gutter-width);
+@container-sm: @container-tablet;
+@container-desktop:(940+@grid-gutter-width);
+
+@container-md:                 @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop:      (1140px + @grid-gutter-width);
+//** For `@screen-lg-min` and up.
+@container-lg:                 @container-large-desktop;
+

@@ -35,15 +35,21 @@
 <!-- build:js scripts/vendor.js -->
 <!-- JS -->
 <!-- MODULES -->
-<script src="mods/app.js"></script>
-<script src="mods/core/directives/ngQaList/qalist.js"></script>
-<script src="mods/lazymod/controllers/lazymod.ctrl.js"></script>
-<script src="mods/users/controllers/user.ctrl.js"></script>
-<script src="mods/users/controllers/userinfo.ctrl.js"></script>
-<script src="mods/users/controllers/userlist.ctrl.js"></script>
-<script src="mods/users/users.route.js"></script>
-<script src="mods/fullpkgs/fullpkg.route.js"></script>
+
 <!-- endbuild -->
+
+
+<script src="mods/default/default.module.js"></script>
+<!-- 模块入口 -->
+<script src="mods/app.js"></script>
+
+<!--  针对于某一个模块的整体打包策略  -->
+<script src="mods/users/users.mod.js"></script>
+<!-- 服务  service 和factory 整体打包  -->
+<script src="mods/users/services/users.services.js"></script>
+<!-- 指令  directives 整体打包 -->
+
+
 
 
 </body>

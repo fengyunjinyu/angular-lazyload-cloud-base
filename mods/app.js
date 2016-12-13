@@ -6,9 +6,9 @@ var app = angular.module('app' , [
     'ngCookies',
     'ngRoute',
     'ngResource',
-    'ui.router','oc.lazyLoad',
-    'com.module.user'
-
+    'ui.router',
+    'oc.lazyLoad',
+    'default.module'
 ]);
 
 app.config(["$provide", "$compileProvider", "$controllerProvider",
@@ -73,78 +73,7 @@ app.config(["$stateProvider","$urlRouterProvider",function($stateProvider , $url
 
     $urlRouterProvider.otherwise('/router');
 }]);
+
+
 app.controller("LayoutCtrl" , function($scope){
 });
-
-
-/*
-
- app.directive("ngQaList" , function($http){
-
- return {
- restrict:'EA',
- scope:{
- aid:'='
- },
- template:'<div>{{userd}}</div><p ng-click="changed()">CHange Val</p><li ng-repeat="item in list_qa">{{ item }}</li>',
- link:function(scope,iElement ,iAttrs){
- scope.userd="usa";
- scope.list_qa=[];
-
- scope.$watch('list_qa' , function(val){
- console.log("list_qa changed");
- });
-
- scope.changed = function(){
- scope.list_qa=['list1'];
- };
- setTimeout(function(){
- $http.get("./test.json").success(function(data){
- scope.list_qa=['sjjfjf','111','333'];
- console.log(data);
- }).error(function(data){
- console.log(data);
- scope.list_qa=['ahh' , 'kkskd'];
- })
-
-
- } , 4000);
-
- }
- }
-
- });
-
- */
-
-
-
-
-
-
-/*
-
-
- //定义指令
- Lazy.directive("ngHello" , function($scope){
- return {
- template:'<div><h3>Hello world</h3></div>'
-
- }
- });
-
- Lazy.directive('ngDirective' , function(){
- return {
- restrict:'EA',
- scope:false,
- replace:true,
- template:'<p>Dojos</p>'
- }
- });
-
- //定义factory
-
-
- //定义service
-
- */

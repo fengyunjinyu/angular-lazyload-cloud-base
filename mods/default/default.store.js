@@ -1,10 +1,4 @@
-/**
- * User services
- * 操作方法服务
- */
-
-
-app.factory("UserStore" ,function($resource ,$http){
+defaultModule.factory("DefaultStore" ,function($resource ,$http){
 
 
     var url_base = "./api/users/";
@@ -25,10 +19,7 @@ app.factory("UserStore" ,function($resource ,$http){
      console.log(data)
      })
      }
-
-
      return factory;
-
      */
 
 
@@ -53,20 +44,3 @@ app.factory("UserStore" ,function($resource ,$http){
         }
     )
 });
-
-app.service("UserService" , function($state){
-    this.edit = function(){
-        console.log("edit now user");
-    };
-    this.get_user = function(){
-        console.log("get now user");
-    };
-    this.get_user_list = function(){
-        return [
-            {name:'zg',id:10},
-            {id:11 , name:'jam'},
-            {id:12 , name:'smith'}
-        ]
-    }
-});
-

@@ -5,7 +5,15 @@
  */
 
 
-app.factory("UserStore" ,['$resource', function($resource){
+
+
+app.factory("UserStore" ,function($resource ,$http){
+
+
+    var url_base = "./api/users/";
+
+
+
     var baseUrl = "./api/users/";
     return $resource(
         './api/users/',
@@ -26,7 +34,6 @@ app.factory("UserStore" ,['$resource', function($resource){
             }
         }
     )
-
-}])
+})
 
 

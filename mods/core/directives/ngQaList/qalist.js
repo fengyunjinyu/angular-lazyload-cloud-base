@@ -19,7 +19,7 @@
 
  */
 
-app.directive("ngQaList" , ['$http' , function( $http ){
+angular.module("com.module.core",[]).directive("ngQaList" , ['$http' , function( $http ){
     return {
         restrict:'EA',
         scope:{

@@ -3,7 +3,7 @@
  * 路由模块
  */
 
-app.config(["$stateProvider" , function( $stateProvider ){
+angular.module("com.module.pkg",[]).config(["$stateProvider" , function( $stateProvider ){
     $stateProvider.state('app.pkg' , {
         url:'/user',
         templateUrl:'./mods/users/views/base.html',

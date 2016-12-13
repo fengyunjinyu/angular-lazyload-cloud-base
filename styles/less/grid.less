@@ -1,0 +1,183 @@
+@import "vars.less";
+/**
+   mixins.less
+   grid function stores
+*/
+
+.container-fixed(@gutter: @grid-gutter-width){
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:(@gutter / 2);
+  padding-right:(@gutter / 2);
+  //&:extend(.cleatfix all);
+
+}
+
+.make-row(@gutter:@grid-gutter-width){
+  margin-left:  (@gutter / -2);
+  margin-right: (@gutter / -2);
+  &:extend(.clearfix all);
+}
+
+// Generate the extra small columns
+.make-xs-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  float: left;
+  width: percentage((@columns / @grid-columns));
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+}
+
+// Generate the small columns
+.make-sm-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-sm-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the medium columns
+.make-md-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-md-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+// Generate the large columns
+.make-lg-column(@columns; @gutter: @grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  (@gutter / 2);
+  padding-right: (@gutter / 2);
+
+  @media (min-width: @screen-lg-min) {
+    float: left;
+    width: percentage((@columns / @grid-columns));
+  }
+}
+
+
+
+
+/**
+   Grid framework
+*/
+
+// Create grid for specific class
+
+
+
+.make-grid-columns() {
+  // Common styles for all sizes of grid columns, widths 1-12
+  .col(@index) when (@index = 1) { // initial
+    @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
+    @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left:  (@grid-gutter-width / 2);
+      padding-right: (@grid-gutter-width / 2);
+    }
+  }
+  .col(1); // kickstart it
+}
+
+.float-grid-columns(@class) {
+  .col(@index) when (@index = 1) { // initial
+    @item: ~".col-@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general
+    @item: ~".col-@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: left;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+
+.make-grid(@class) {
+  .float-grid-columns(@class);
+  .loop-grid-columns(@grid-columns, @class, width);
+}
+
+
+.calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
+  .col-@{class}-@{index} {
+    width: percentage((@index / @grid-columns));
+  }
+}
+// Basic looping in LESS
+.loop-grid-columns(@index, @class, @type) when (@index >= 0) {
+  .calc-grid-column(@index, @class, @type);
+  // next iteration
+  .loop-grid-columns((@index - 1), @class, @type);
+}
+
+
+/**
+   Grid system
+ */
+.container{
+  .container-fixed();
+  @media (min-width: @screen-sm-min){
+    width: @container-sm;
+  }
+  @media (min-width:@screen-md){
+    width: @container-md;
+  }
+  @media (min-width:@screen-lg) {
+    width: @container-lg;
+  }
+}
+
+.container-fluid{
+  .container-fixed();
+}
+
+.row{
+  .make-row();
+}
+
+.make-grid-columns();
+
+//.make-grid(xs);
+
+
+
+@media (min-width: @screen-sm-min){
+  .make-grid(sm);
+}
+
+@media (min-width: @screen-md-min){
+  .make-grid(md);
+}
+
+@media (min-width: @screen-lg-min) {
+  .make-grid(lg)
+  
+}
