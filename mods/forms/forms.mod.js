@@ -45,7 +45,7 @@ formModule.config(['$stateProvider',
     function($stateProvider,$urlRouteProvider , $ocLazyLoadProvider ){
         $stateProvider.state('app.forms' , {
             url:'/forms',
-            //abstract:true,
+            abstract:true,
             //controller: 'FormIndexCtrl', // This view will use AppCtrl loaded below in the resolve
             templateUrl: 'mods/forms/views/index.html',
             controller: 'FormIndexCtrl'
@@ -88,7 +88,7 @@ formModule.config(['$stateProvider',
                         type:'input',
                         templateOptions:{
                             type:'text',
-                            label:'姓',
+                            label:'姓名',
                             placeholder: '输入姓',
                             required: true
                         }
@@ -192,7 +192,7 @@ formModule.config(['$stateProvider',
 
             }
         }).state("app.forms.config",{
-            url:'',
+            url:'/config',
             templateUrl:'mods/forms/views/base.html',
             controller:function( $scope ){
                 $scope.title="完整配置项以及效果";
