@@ -4,15 +4,6 @@
  */
 
 var defaultModule = angular.module('default.module',['oc.lazyLoad']);
-
-/*
-defaultModule.run(['$ocLazyLoadProvider' , function($oclazyLoadProvider){
-    $lazyload.isNotIdenticalTo(defaultModule);
-    defaultModule.register = $oclazyLoadProvider.register;
-
-}]);
-*/
-
 defaultModule.config(["$provide", "$compileProvider", "$controllerProvider", "$filterProvider",
     function ($provide, $compileProvider, $controllerProvider, $filterProvider) {
         defaultModule.controller = $controllerProvider.register;
@@ -43,37 +34,6 @@ function routeFn($ocLazyLoadProvider,Modules_Config) {
         modules: Modules_Config
     });
 }
-
-
-
-/**
- * 延迟加载指令
- */
-
-/*
-defaultModule.config(["$provide", "$compileProvider", "$controllerProvider",
-    "$filterProvider" , function($provider , $compileProvider , $controllerProvider , $filterProvoder){
-
-        app.controller = $controllerProvider.register;
-        app.directive = $compileProvider.directive;
-        app.filter = $filterProvoder.register;
-        app.factory = $provider.factory;
-        app.constant = $provider.constant;
-    }]);
-*/
-
-
-/**
- * 延迟加载服务
- */
-
-/*
-defaultModule.config(['$provide' , function($provider){
-
-}]);
-*/
-
-
 
 /**
  * 定义路由

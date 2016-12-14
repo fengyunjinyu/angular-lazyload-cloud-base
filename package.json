@@ -31,6 +31,11 @@
     "load-grunt-tasks": "^3.5.2"
   },
   "dependencies": {
+    "angular": "^1.6.0",
+    "angular-formly": "^8.4.0",
+    "angular-formly-templates-bootstrap": "^6.4.0",
+    "api-check": "^7.5.5",
+    "bootstrap": "^3.3.7",
     "bower": "^1.8.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-less": "^1.4.0",

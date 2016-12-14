@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0,width=device-width,max-scale=1.0,user-scale=1.0">
     <title>Angular项目</title>
     <link href="static/css/style.css" rel="stylesheet" type="text/css">
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         html,body{font-family: "Microsoft Yahei"}
 
@@ -27,6 +28,10 @@
 <script type="text/javascript" src="dist/angular-animate.min.js"></script>
 <script type="text/javascript" src="dist/angular-touch.min.js"></script>
 <script type="text/javascript" src="dist/angular-ui-router.js"></script>
+<!-- 引入表单处理 -->
+<script type="text/javascript" src="plugins/api-check.min.js"></script>
+<script type="text/javascript" src="plugins/formly.min.js"></script>
+<script type="text/javascript" src="plugins/angular-formly-templates-bootstrap.min.js"></script>
 <script type="text/javascript" src="dist/ocLazyLoad.min.js"></script>
 <!-- bower:js -->
 <!-- endbower -->
@@ -40,6 +45,8 @@
 
 
 <script src="mods/default/default.module.js"></script>
+<script src="mods/forms/forms.mod.js"></script>
+<script src="mods/forms/controllers/formindex.ctrl.js"></script>
 <!-- 模块入口 -->
 <script src="mods/app.js"></script>
 
@@ -48,6 +55,8 @@
 <!-- 服务  service 和factory 整体打包  -->
 <script src="mods/users/services/users.services.js"></script>
 <!-- 指令  directives 整体打包 -->
+
+
 
 
 

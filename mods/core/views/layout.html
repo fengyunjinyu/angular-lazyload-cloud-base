@@ -1,14 +1,35 @@
-<h1 class="navbar_title" style="">
-    Hello world
-</h1>
+<div>
+    <h5 style="line-height: 40px;text-align: center;font-weight: bold;font-size: 24px;">
+        Hello world
+    </h5>
 
-<div class="nav_tab overline flo">
-    <span><a ui-sref="app.lazymod">LazyMod</a> </span>
-    <span><a ui-sref="app.pkg">fullpackages</a>  </span>
-    <span><a ui-sref="app.user">users</a> </span>
-    <span><a ui-sref="app.default">defs</a>  </span>
-    <span><a ui-sref="app.default.list">defs</a>  </span>
 </div>
 
 
-<ui-view></ui-view>
+<div class="nav navbar-nav" style="border-top:#d1d1d1 solid 1px;border-bottom: #d1d1d1 solid 1px;">
+    <div class="container">
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref="app.lazymod">LazyMod</a>
+                </li>
+                <li>
+                    <a ui-sref="app.pkg">fullpackages</a>
+                </li>
+                <li>
+                    <a ui-sref="app.user">users</a>
+                </li>
+                <li>
+                    <a ui-sref="app.default">default</a>
+                </li>
+                <li>
+                    <a ui-sref="app.forms"> module_forms  </a>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+
+</div>
+
+<div ui-view class="" style="display: block;position: relative;float: left;width:100%"></div>

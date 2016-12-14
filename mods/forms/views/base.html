@@ -1,0 +1,11 @@
+<div class="row">
+    <h3>{{ title }}</h3>
+    <div class="col-md-9">
+        <form novalidate>
+            <formly-form model="vm.rental" fields="vm.rentalFields" form="vm.rentalForm">
+                <button type="submit" class="btn btn-primary" ng-disabled="vm.rentalForm.$invalid">提交</button>
+            </formly-form>
+        </form>
+
+    </div>
+</div>

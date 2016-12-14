@@ -8,7 +8,11 @@ var app = angular.module('app' , [
     'ngResource',
     'ui.router',
     'oc.lazyLoad',
-    'default.module'
+    'default.module',
+    'formly',
+    'formlyBootstrap',
+    'com.module.forms'
+
 ]);
 
 app.config(["$provide", "$compileProvider", "$controllerProvider",
