@@ -11,7 +11,8 @@ var app = angular.module('app' , [
     'default.module',
     'formly',
     'formlyBootstrap',
-    'com.module.forms'
+    'com.module.forms',
+    'ui.bootstrap'
 
 ]);
 

@@ -4,18 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0,width=device-width,max-scale=1.0,user-scale=1.0">
     <title>Angular项目</title>
-    <link href="static/css/style.css" rel="stylesheet" type="text/css">
-    <link href="dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <style type="text/css">
-        html,body{font-family: "Microsoft Yahei"}
-
-        .nav_tab{background: #ffffff;border-bottom: #d1d1d1 solid 2px;}
-        .nav_tab span{display: inline-block;padding: 0 15px;;
-            text-align: center;position: relative;float: left}
-        .nav_tab span a{display: inline-block;line-height: 36px;}
-        .navbar_title{line-height: 40px;font-size: 16px;text-align: center;
-            border-bottom: #d1d1d1 solid 1px;}
-    </style>
+    <link href="styles/base/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body ng-app="app" ng-controller="LayoutCtrl">
 <ui-view></ui-view>
@@ -28,19 +17,48 @@
 <script type="text/javascript" src="dist/angular-animate.min.js"></script>
 <script type="text/javascript" src="dist/angular-touch.min.js"></script>
 <script type="text/javascript" src="dist/angular-ui-router.js"></script>
+<script type="text/javascript" src="dist/ocLazyLoad.min.js"></script>
+<!-- bower:js -->
+
+<!-- endbower -->
+<!-- endbuild -->
+
+
+<!-- build:js scripts/plugin.js -->
 <!-- 引入表单处理 -->
 <script type="text/javascript" src="plugins/api-check.min.js"></script>
 <script type="text/javascript" src="plugins/formly.min.js"></script>
 <script type="text/javascript" src="plugins/angular-formly-templates-bootstrap.min.js"></script>
 <script type="text/javascript" src="dist/ocLazyLoad.min.js"></script>
-<!-- bower:js -->
-<!-- endbower -->
-<!-- endbuild -->
+<!-- 引入ui-bootstrap组件 -->
+<script  type="text/javascript" src="plugins/ui-bootsrap/ui-bootstrap.js"></script>
+<script type="text/javascript" src="plugins/ui.bootstrap.templates.0.13.0.js"></script>
+
+<!--  endbuild  -->
+
 
 <!-- build:js scripts/vendor.js -->
 <!-- JS -->
+<script src=".//mods/app.js"></script>
 <!-- MODULES -->
-
+<script src=".//mods/app.js"></script>
+<script src=".//mods/core/directives/ngQaList/qalist.js"></script>
+<script src=".//mods/default/default.module.js"></script>
+<script src=".//mods/default/default.service.js"></script>
+<script src=".//mods/default/default.store.js"></script>
+<script src=".//mods/default/DefaultCtrl.js"></script>
+<script src=".//mods/default/list.ctrl.js"></script>
+<script src=".//mods/forms/controllers/formindex.ctrl.js"></script>
+<script src=".//mods/forms/forms.mod.js"></script>
+<script src=".//mods/fullpkgs/fullpkg.route.js"></script>
+<script src=".//mods/lazymod/controllers/lazymod.ctrl.js"></script>
+<script src=".//mods/users/controllers/user.ctrl.js"></script>
+<script src=".//mods/users/controllers/userinfo.ctrl.js"></script>
+<script src=".//mods/users/controllers/userlist.ctrl.js"></script>
+<script src=".//mods/users/factory/users.store.js"></script>
+<script src=".//mods/users/services/users.services.js"></script>
+<script src=".//mods/users/users.mod.js"></script>
+<script src=".//mods/users/users.route.js"></script>
 <!-- endbuild -->
 
 
@@ -55,10 +73,6 @@
 <!-- 服务  service 和factory 整体打包  -->
 <script src="mods/users/services/users.services.js"></script>
 <!-- 指令  directives 整体打包 -->
-
-
-
-
 
 
 </body>

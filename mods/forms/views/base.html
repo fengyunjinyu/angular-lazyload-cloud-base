@@ -2,8 +2,13 @@
     <h3>{{ title }}</h3>
     <div class="col-md-9">
         <form novalidate>
-            <formly-form model="vm.rental" fields="vm.rentalFields" form="vm.rentalForm">
-                <button type="submit" class="btn btn-primary" ng-disabled="vm.rentalForm.$invalid">提交</button>
+            <formly-form model="vm.rental" fields="vm.rentalFields" form="vm.rentalForm" options="vm.options">
+                <button type="submit" class="btn btn-primary" ng-disabled="vm.rentalForm.$invalid">
+                    提交
+                </button>
+                <button type="submit" class="btn btn-primary submit-button">Submit</button>
+                <button type="button" class="btn btn-default" ng-click="vm.options.resetModel()">Reset</button>
+                <button type="button" class="btn btn-default" ng-click="vm.options.updateInitialValue()">Update Intial Values</button>
             </formly-form>
         </form>
 

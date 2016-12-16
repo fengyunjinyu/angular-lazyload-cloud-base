@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,max-scale=1.0,user-scale=1.0">
+    <title>datepicker form formly 融合 </title>
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../../plugins/ui-bootsrap/ui-bootstrap-csp.css" rel="stylesheet" type="text/css">
+
+    <!-- build:js scripts/dist.js -->
+    <script type="text/javascript" src="../../dist/angular.min.js"></script>
+    <!-- 引入表单处理 -->
+    <script type="text/javascript" src="../../plugins/api-check.min.js"></script>
+    <script type="text/javascript" src="../../plugins/formly.min.js"></script>
+    <script type="text/javascript" src="../../plugins/angular-formly-templates-bootstrap.min.js"></script>
+
+
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- apiCheck is used by formly to validate its api -->
+    <!-- This is the latest version of angular (at the time this template was created) -->
+
+    <!-- This is the current state of master for formly core. -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+
+    <script type="text/javascript" src="main.js"></script>
+
+</head>
+<body ng-app="formlyExample" ng-controller="MainCtrl as vm">
+<div>
+    <h1>angular-formly example: {{vm.exampleTitle}}</h1>
+    <div>
+        This is a <strong>very</strong> basic example of how to use the
+        <a href="http://angular-ui.github.io/bootstrap/#/datepicker">UI Boostrap <a href="http://angular-ui.github.io/bootstrap/#/timepicker">Timepicker</a>
+            with angular-formly.
+    </div>
+    <hr />
+    <form ng-submit="vm.onSubmit()" name="vm.form" novalidate>
+        <formly-form model="vm.model" fields="vm.fields" options="vm.options">
+            <button type="submit" class="btn btn-primary submit-button" ng-disabled="vm.form.$invalid">Submit</button>
+            <button type="button" class="btn btn-default" ng-click="vm.options.resetModel()">Reset</button>
+        </formly-form>
+    </form>
+    <hr />
+    <h2>Model Value</h2>
+    <pre>{{vm.model | json}}</pre>
+    <h2>Fields <small>(note, functions are not shown)</small></h2>
+    <pre>{{vm.originalFields | json}}</pre>
+    <h2>Form</h2>
+    <pre>{{vm.form | json}}</pre>
+</div>
+
+<div style="margin-top:30px">
+    <small>
+        This is an example for the
+        <a href="https://formly-js.github.io/angular-formly">angular-formly</a>
+        project made with ♥ by
+        <strong>
+          <span ng-if="!vm.author.name || !vm.author.url">
+            {{vm.author.name || 'anonymous'}}
+          </span>
+            <a ng-if="vm.author.url" ng-href="{{::vm.author.url}}">
+                {{vm.author.name}}
+            </a>
+        </strong>
+        <br />
+        This example is running angular version "{{vm.env.angularVersion}}" and formly version "{{vm.env.formlyVersion}}"
+    </small>
+</div>
+
+
+</body>
+</html>

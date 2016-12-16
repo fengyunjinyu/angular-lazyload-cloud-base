@@ -19,8 +19,12 @@ module.exports = function(grunt){
                 banner:'/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build:{
-                src:'build/script/*.js',
-                dest:'build/scripts/'
+                files:[{
+                    expand:true,
+                    cwd:'tmp/script/',
+                    src:'*.js',
+                    dest:'build/script/'
+                }]
             },
             buildall:{
                 files:[{
@@ -42,11 +46,16 @@ module.exports = function(grunt){
             },
             dist:{
                 src:'dist/*.js',
-                dest:'build/script/dist.js'
+                dest:'tmp/script/dist.js'
+            },
+            plugin:{
+                src:'./plugins/{,*}*.js',
+                dest:'tmp/script/plugin.js'
+
             },
             build:{
                 src:'mods/**/*.js',
-                dest:'build/script/vendor.js'
+                dest:'tmp/script/vendor.js'
 
             },
             //按模块打包
@@ -136,26 +145,11 @@ module.exports = function(grunt){
         useminPrepare:{
             html:'build/index.html',
             options:{
-                dest:"build",
-                root:'',
-                flow:{
-                    steps:{
-                        js:['concat' , 'uglifyjs'],
-                        css:['cssmin']
-                    },
-                    post:{}
-                }
+                dest:"build"
             }
         },
         usemin:{
-            html:['build/{,*/}*.html'],
-            css:['build/styles/{,*/}*.css'],
-            options: {
-                assetsDirs: [
-                    'build',
-                    'build/images'
-                ]
-            }
+            html:['build/index.html']
         },
         //资源文件后缀名增加八位md5加密字符串
         filerev:{
@@ -262,20 +256,30 @@ module.exports = function(grunt){
      */
     grunt.registerTask("build" ,[
         'clean:dist',
-        'test',
+        //'testd',
         'includeSource:dist',
-        'wiredep:dist',
-        'useminPrepare',
+        //'wiredep:dist',
+        //'useminPrepare',
+
+        //文件合并
         'concat:dist',
+        'concat:plugin',
         'concat:build',
-        'usemin',
+
+
+        //文件压碎
+        'uglify:build',
+
+        //生成8位标示
         'filerev:dist',
-        //'uglify:build',
+        //将原文件中的文件名替换生成后的文件名
+        'usemin',
+
+        //html压缩
         'htmlmin'
     ]);
 
     //test less compile
-
     grunt.registerTask("test" , ['less:sys']);
 
-}
+};
