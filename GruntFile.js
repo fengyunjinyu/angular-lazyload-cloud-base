@@ -114,8 +114,8 @@ module.exports = function(grunt){
                 baseUrl:'/',
                 templates:{
                     html:{
-                        js:'<script src="./{filePath}"></script>',
-                        css: '<link rel="stylesheet" href="./{filePath}" />'
+                        js:'<script src=".{filePath}"></script>',
+                        css: '<link rel="stylesheet" href=".{filePath}" />'
                     }
                 }
             },
